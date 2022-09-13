@@ -6,7 +6,6 @@ const $box = document.querySelector("#box") as HTMLDivElement;
 const $button = document.querySelector("#copiar") as HTMLButtonElement;
 const $valor = document.querySelector("#resposta") as HTMLDivElement;
 const $salvar = document.querySelector("#transformar") as HTMLButtonElement;
-const $inputCopiar = document.querySelector("#input-copiar") as HTMLInputElement;
 
 $salvar.addEventListener("click", function(e){
     $box.style.borderTopLeftRadius = $topLeft.value + "%"
@@ -18,31 +17,8 @@ $salvar.addEventListener("click", function(e){
 })
 
 $button.addEventListener("click", function(e){
+    const $inputCopiar = document.querySelector("#input-copiar") as HTMLInputElement;
     $inputCopiar.select()
-    navigator.clipboard.writeText($inputCopiar.innerText);
+    navigator.clipboard.writeText($inputCopiar.value);
+    alert("Copied the text: " + $inputCopiar.value);
 })
-
-
-
-
-// $button.addEventListener("click", function(e){
-//     // $topLeft.select()
-//     // $topRight.select()
-//     // $bottomLeft.select()
-//     // $bottomRight.select()
-//     navigator.clipboard.writeText($topLeft.value);
-//     navigator.clipboard.writeText($topRight.value);
-//     navigator.clipboard.writeText($bottomRight.value);
-//     navigator.clipboard.writeText($bottomLeft.value);
-
-
-//     // /* Select the text field */
-//     // copyText.select();
-//     // copyText.setSelectionRange(0, 99999); /* For mobile devices */
-  
-//     //  /* Copy the text inside the text field */
-//     // navigator.clipboard.writeText(copyText.value);
-  
-//     // /* Alert the copied text */
-//     // alert("Copied the text: " + copyText.value);
-// })
